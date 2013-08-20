@@ -8,7 +8,9 @@ angular.module('TabulaPlenaApp')
       restrict: 'EA',
       scope: true,
       controller: function editorController ($scope, $sce) {
-        $scope.content = $sce.trustAsHtml($scope.writeup.content);
+        $scope.content = function () {
+          return $sce.trustAsHtml($scope.writeup.content);
+        };
       },
       link: function postLink(scope, element, attrs) {
 
